@@ -1,37 +1,15 @@
 package Phonebook::Controller::Index;
 use Mojo::Base 'Phonebook::Controller';
 
-<<<<<<< Updated upstream
-=======
 use constant {
 	TABLE => 'phonebook',
 	SQL_LIMIT => 100,
 };
 
->>>>>>> Stashed changes
 sub list($) {
 	my $c = shift;
 	my $DB = $c->app->db;
 
-<<<<<<< Updated upstream
-	my ($search_param, $page) = (
-		$c->req->param('phone-search-bar'),
-		$c->req->param('page')
-	);
-
-	my $list = [{id => 1, name => '123', phone => '312', created => 'lol'}, ];
-	# $DB->select(
-	# 	'select * from phonebook where phone like %?% limit ?',
-	# 	$search_param,
-	# 	$limit
-	# 	$page
-	# );
-
-	return $c->render(list => $list);
-}
-
-1;
-=======
 	my $params = $c->req->params->to_hash;
 
 	my ($where, $page) = $c->_parse_phonebook_params($params);
