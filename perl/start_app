@@ -1,0 +1,1 @@
+carton exec morbo -w lib -w templates -w config ./script/phonebook

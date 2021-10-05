@@ -1,0 +1,8 @@
+requires 'perl' => '5.24.0';
+requires 'Mojolicious', '==9.02';
+requires 'Mojo::mysql';
+requires 'String::Random';
+requires 'common::sense';
+requires 'Test::More';
+requires 'Try::Tiny';
+requires 'FindBin';
