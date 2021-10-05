@@ -1,0 +1,25 @@
+% my $title =  'Phonebook';
+% layout 'default'; title $title;
+<h1><%== $title %></h1>
+
+% my @columns = qw(id name phone created); #table columns
+<table>
+    <thead>
+        <tr>
+            % for my $column (@columns) {
+                    <th><%= uc($column) %></th>
+            % }
+        </tr>
+    </thead>
+    <tbody>
+    <%
+    for my $item (@$list) {
+    %>
+        <tr>
+            % for my $column (@columns) {
+                <td><%= $item->{$column} %></td>
+            % }
+        </tr>
+    % }
+    </tbody>
+</table>

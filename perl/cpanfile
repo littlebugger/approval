@@ -1,0 +1,6 @@
+requires 'perl' => '5.24.0';
+requires 'Mojolicious', '==9.02'; # '==7.55';
+requires 'Mojo::mysql'; # , '==1.11';
+# requires 'List::Util', '==1.55';
+requires 'common::sense';
+requires 'Try::Tiny';

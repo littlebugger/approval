@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mysql:
+    extends:
+      file: compose-mysql.yml
+      service: mysql
+  perl:
+    platform: linux/aarch64
+    build:
+      context: ./perl
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+    links:
+      - mysql
+    environment:
+      MOJO_MODE: development
+      MYSQL_DRIVER: mysql
+      MYSQL_HOST: localhost
+      MYSQL_PORT: 3306
+      MYSQL_USER: revolee
+      MYSQL_PASS: revolee
+      MYSQL_DB: private_data
+    ports:
+      - "3000:3000"
