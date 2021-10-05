@@ -3,7 +3,7 @@ use `private_data`;
 CREATE TABLE IF NOT EXISTS `phonebook` (
 	`id` INT AUTO_INCREMENT PRIMARY KEY,
 	`name` VARCHAR(12) NOT NULL,
-	`phone` INT(11) NOT NULL,
+	`phone` VARCHAR(11) NOT NULL,
 	`created` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	KEY(`phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

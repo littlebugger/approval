@@ -15,7 +15,7 @@ sub startup($) {
 	$app->controller_class('Phonebook::Controller');
 	$app->attr(db => sub {
 			use Mojo::mysql;
-			return Mojo::mysql->strict_mode($app->conf->{mysql});
+			return Mojo::mysql->strict_mode($app->conf->{mysql})->db;
 		}
 	);
 
@@ -42,3 +42,7 @@ sub _public_routes($) {
 }
 
 1;
+
+=encoding utf-8
+
+TODO: добавить findbin для templates

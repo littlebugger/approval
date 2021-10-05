@@ -15,8 +15,7 @@ services:
       - mysql
     environment:
       MOJO_MODE: development
-      MYSQL_DRIVER: mysql
-      MYSQL_HOST: localhost
+      MYSQL_HOST: mysql
       MYSQL_PORT: 3306
       MYSQL_USER: revolee
       MYSQL_PASS: revolee

@@ -3,23 +3,49 @@
 <h1><%== $title %></h1>
 
 % my @columns = qw(id name phone created); #table columns
-<table>
-    <thead>
-        <tr>
-            % for my $column (@columns) {
-                    <th><%= uc($column) %></th>
-            % }
-        </tr>
-    </thead>
-    <tbody>
-    <%
-    for my $item (@$list) {
-    %>
-        <tr>
-            % for my $column (@columns) {
-                <td><%= $item->{$column} %></td>
-            % }
-        </tr>
-    % }
-    </tbody>
-</table>
+
+<form action="" method="get">
+    <div class="form-group">
+        <input
+            value="<%= param('phone_search') %>"
+            class="form-control"
+            placeholder="Поиск..."
+            autocomplete="off"
+            id="q_header"
+            name="phone_search"
+            type="text"
+        >
+        <input
+            value="<%= $page %>"
+            class="form-control"
+            autocomplete="off"
+            id="page_header"
+            name="page"
+            type="text"
+        >
+    </div>
+    <button>Search</button>
+</form>
+
+% if (ref $list) {
+    <table>
+        <thead>
+            <tr>
+                % for my $column (@columns) {
+                        <th><%= uc($column) %></th>
+                % }
+            </tr>
+        </thead>
+        <tbody>
+        % for my $item (@$list) {
+            <tr>
+                % for my $column (@columns) {
+                    <td><%= $item->{$column} %></td>
+                % }
+            </tr>
+        % }
+        </tbody>
+    </table>
+% } else {
+    No data
+% }
